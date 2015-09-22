@@ -1,0 +1,56 @@
+
+import SceneKit
+import SpriteKit
+
+class GameViewController: UIViewController {
+    
+    var scnView: GameView {
+        get {
+            return self.view as! GameView
+        }
+    }
+    
+   
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        
+        // Set up the SCNView
+        scnView.backgroundColor = UIColor(red: 100.0/255.0, green: 149.0/255.0, blue: 237.0/255.0, alpha: 1.0)
+        scnView.showsStatistics = true
+        scnView.antialiasingMode = SCNAntialiasingMode.Multisampling2X
+        scnView.overlaySKScene = SKScene(size: view.bounds.size)
+        scnView.playing = true
+        
+        //scnView.allowsCameraControl = true
+        
+        // Set up the scene
+        let scene = GameScene(view: scnView)
+        scene.rootNode.hidden = true
+        scene.physicsWorld.contactDelegate = scene
+        
+        
+        // Start playing the scene
+        scnView.scene = scene
+        scnView.delegate = scene
+        scnView.eventHandlerDelegate = scene.inputHandler
+        scnView.scene!.rootNode.hidden = false
+        scnView.play(self)
+    }
+    
+    
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
+    
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+}
