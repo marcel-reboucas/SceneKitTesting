@@ -133,18 +133,23 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
         let omniLightNode = SCNNode()
         omniLightNode.name = "OmniLight"
         omniLightNode.light = omniLight
-        omniLightNode.position = SCNVector3(x: -10.0, y: 20, z: 10.0)
+        omniLightNode.position = SCNVector3(x: -100.0, y: 20, z: 10.0)
         rootNode.addChildNode(omniLightNode)
         
-        //Create a directional light
-        let directionalLight = SCNLight()
-        directionalLight.type = SCNLightTypeDirectional
-        directionalLight.color = UIColor.whiteColor()
-        let directionalNode = SCNNode()
-        directionalNode.name = "DirectionalLight"
-        directionalNode.light = directionalLight
-        directionalNode.position = SCNVector3(x: -30.0, y: 40, z: 10.0)
-        rootNode.addChildNode(directionalNode)
+        let spotLight = SCNLight()
+        spotLight.type = SCNLightTypeAmbient
+        spotLight.color = UIColor.whiteColor()
+        spotLight.spotInnerAngle = 0;
+        spotLight.spotOuterAngle = 45;
+        spotLight.shadowRadius = 100.0;
+        spotLight.zFar = 1000;
+        spotLight.shadowColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        spotLight.castsShadow = true
+        let spotNode = SCNNode()
+        spotNode.name = "SpotLight"
+        spotNode.position = SCNVector3Make(100, 100, 170);
+        spotNode.light = spotLight
+        rootNode.addChildNode(spotNode)
     }
     
     
@@ -178,10 +183,10 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
             let angle = atan2f(direction.x, direction.z)
             player.setDirectionAndRotate(angle)
             
-            //_character.walk = YES;
+            player.setWalking(true)
         }
         else {
-            //_character.walk = NO;
+            player.setWalking(false)
         }
         
         
@@ -200,7 +205,7 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
         
         let results = self.physicsWorld.rayTestWithSegmentFromPoint(p1, toPoint: p0, options: [SCNPhysicsTestCollisionBitMaskKey: CollisionCategory.Ground.rawValue, SCNPhysicsTestSearchModeKey: SCNPhysicsTestSearchModeClosest])
         
-        var groundY : Float = 5.0
+        var groundY : Float = 2.0
         
         if (results.count > 0) {
             //o chao está embaixo do player
