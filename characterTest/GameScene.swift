@@ -83,36 +83,10 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
     
     func setupSKOverlay(){
         
-        var w = sceneView.bounds.size.width
-        var h = sceneView.bounds.size.height
-        
-        
-        // Support Landscape scape
-        if (w < h) {
-            let wTmp = w;
-            w = h;
-            h = wTmp;
-        }
-        
-        // Setup the game overlays using SpriteKit.
-        let skScene : SKScene = SKScene(size: CGSizeMake(w, h))
-        skScene.scaleMode = SKSceneScaleMode.ResizeFill
-        skScene.shouldEnableEffects = true
-        skScene.backgroundColor = SKColor.clearColor()
-        skScene.blendMode = .Alpha
-        
-        // The D-Pad
-        let sprite = SKSpriteNode(imageNamed: "dpad.png")
-        sprite.position = CGPointMake(100, 120)
-        sprite.xScale = 0.5
-        sprite.yScale = 0.5
-        skScene.addChild(sprite)
-        
-        inputHandler.padRect = CGRectMake((sprite.position.y-inputHandler.DPAD_RADIUS)/w, 1.0 - ((sprite.position.y + inputHandler.DPAD_RADIUS) / h), 2 * inputHandler.DPAD_RADIUS/w, 2 * inputHandler.DPAD_RADIUS/h);
-        
-        
+        let hud = HUDScene(scnView: sceneView, inputHandler: inputHandler)
+       
         // Assign the SpriteKit overlay to the SceneKit view.
-        sceneView.overlaySKScene = skScene;
+        sceneView.overlaySKScene = hud;
     }
     
     func setupLights() {

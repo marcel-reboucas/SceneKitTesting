@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F5C1EBB1BB5CCA200542B43 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */; settings = {ASSET_TAGS = (); }; };
+		1F5C1EBF1BB5D1E700542B43 /* bag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F5C1EBE1BB5D1E700542B43 /* bag.jpg */; settings = {ASSET_TAGS = (); }; };
+		1F5C1EC11BB5D49C00542B43 /* ButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */; settings = {ASSET_TAGS = (); }; };
 		1FC2803C1BAC35D0004E0330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2803B1BAC35D0004E0330 /* AppDelegate.swift */; };
 		1FC2803E1BAC35D0004E0330 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC2803D1BAC35D0004E0330 /* art.scnassets */; };
 		1FC280401BAC35D0004E0330 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2803F1BAC35D0004E0330 /* GameViewController.swift */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
+		1F5C1EBE1BB5D1E700542B43 /* bag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bag.jpg; sourceTree = "<group>"; };
+		1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSpriteNode.swift; sourceTree = "<group>"; };
 		1FC280381BAC35D0004E0330 /* characterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = characterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC2803B1BAC35D0004E0330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC2803D1BAC35D0004E0330 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				1FC280761BB02EC9004E0330 /* dpad.png */,
+				1F5C1EBE1BB5D1E700542B43 /* bag.jpg */,
 			);
 			name = Overlays;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 				1FF126F51BB1F4EF00E18D5B /* Enums.swift */,
 				1FF126F11BB03B7100E18D5B /* EventHandlerDelegate.swift */,
 				1FF126F31BB0B4BD00E18D5B /* InputHandler.swift */,
+				1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 				1FC2806F1BAC3837004E0330 /* GameScene.swift */,
 				1FC2803F1BAC35D0004E0330 /* GameViewController.swift */,
 				1FF126EF1BB039EB00E18D5B /* GameView.swift */,
+				1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -289,6 +298,7 @@
 			files = (
 				1FC2803E1BAC35D0004E0330 /* art.scnassets in Resources */,
 				1FC280771BB02EC9004E0330 /* dpad.png in Resources */,
+				1F5C1EBF1BB5D1E700542B43 /* bag.jpg in Resources */,
 				1FC280481BAC35D0004E0330 /* LaunchScreen.storyboard in Resources */,
 				1FC280451BAC35D0004E0330 /* Assets.xcassets in Resources */,
 				1FC280431BAC35D0004E0330 /* Main.storyboard in Resources */,
@@ -316,12 +326,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F5C1EC11BB5D49C00542B43 /* ButtonSpriteNode.swift in Sources */,
 				1FC280401BAC35D0004E0330 /* GameViewController.swift in Sources */,
 				1FC2803C1BAC35D0004E0330 /* AppDelegate.swift in Sources */,
 				1FC280721BAC38B4004E0330 /* GameLevel.swift in Sources */,
 				1FF126F41BB0B4BD00E18D5B /* InputHandler.swift in Sources */,
 				1FC280701BAC3837004E0330 /* GameScene.swift in Sources */,
 				1FF126F01BB039EB00E18D5B /* GameView.swift in Sources */,
+				1F5C1EBB1BB5CCA200542B43 /* HUDScene.swift in Sources */,
 				1FF126F21BB03B7100E18D5B /* EventHandlerDelegate.swift in Sources */,
 				1FF126F61BB1F4EF00E18D5B /* Enums.swift in Sources */,
 				1FC2806E1BAC377A004E0330 /* Player.swift in Sources */,

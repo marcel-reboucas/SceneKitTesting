@@ -67,7 +67,6 @@ public class InputHandler : EventHandlerDelegate {
         for touch in touches {
             
             //checa primeiro se o toque iniciou no padrect. com isso, se começou no padrect, não vai criar um actiontouch.
-            
             if touchIsInRect(touch, rect: padRect) {
                 //We're in the dpad
                 if padTouch == nil {
