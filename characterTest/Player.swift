@@ -17,7 +17,7 @@ class Player : SCNNode {
     
     
     var playerChildNode : SCNNode!
-    let playerScene = SCNScene(named: "art.scnassets/panda.scn")
+    let playerScene = SCNScene(named: "art.scnassets/Models/panda.scn")
     
     var direction : Float!
     var walk : Bool!
@@ -29,7 +29,7 @@ class Player : SCNNode {
         
         
         let playerMaterial = SCNMaterial()
-        playerMaterial.diffuse.contents = UIImage(named: "art.scnassets/max_diffuse.png")
+        playerMaterial.diffuse.contents = UIImage(named: "art.scnassets/Textures/max_diffuse.png")
         playerMaterial.locksAmbientWithDiffuse = false
        
         playerChildNode = playerScene!.rootNode.childNodes[0]
@@ -57,7 +57,7 @@ class Player : SCNNode {
         self.direction = 0.0
         
         let boundingBoxSize = sizeOfBoundingBoxFromNode(playerChildNode)
-        print("Player bounding box \(boundingBoxSize)")
+        //print("Player bounding box \(boundingBoxSize)")
         
         
         self.physicsBody = SCNPhysicsBody(type: SCNPhysicsBodyType.Kinematic, shape: SCNPhysicsShape(geometry: SCNBox(width: CGFloat(boundingBoxSize.width * modelScale), height: CGFloat(boundingBoxSize.height * modelScale), length: CGFloat(boundingBoxSize.depth * modelScale), chamferRadius: 0), options: nil))
@@ -67,7 +67,7 @@ class Player : SCNNode {
         self.physicsBody?.contactTestBitMask = CollisionCategory.Ground.rawValue
         
         // Load and configure the walk animation
-        walkAnimation = loadAnimationFromSceneNamed("art.scnassets/walk.scn")
+        walkAnimation = loadAnimationFromSceneNamed("art.scnassets/Animations/walk.scn")
         walkAnimation.usesSceneTimeBase = false
         walkAnimation.fadeInDuration = 0.3
         walkAnimation.fadeOutDuration = 0.3
@@ -111,7 +111,6 @@ class Player : SCNNode {
             }
             else {
                 //fade out duration
-                print("stopped walking")
                 self.playerChildNode.removeAnimationForKey("walk", fadeOutDuration: 0.2)
             }
         }

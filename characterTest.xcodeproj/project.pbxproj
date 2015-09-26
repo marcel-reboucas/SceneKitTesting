@@ -10,6 +10,10 @@
 		1F5C1EBB1BB5CCA200542B43 /* HUDScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */; settings = {ASSET_TAGS = (); }; };
 		1F5C1EBF1BB5D1E700542B43 /* bag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F5C1EBE1BB5D1E700542B43 /* bag.jpg */; settings = {ASSET_TAGS = (); }; };
 		1F5C1EC11BB5D49C00542B43 /* ButtonSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */; settings = {ASSET_TAGS = (); }; };
+		1F5C1EC41BB5DFF800542B43 /* GeneralUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC31BB5DFF800542B43 /* GeneralUIScene.swift */; settings = {ASSET_TAGS = (); }; };
+		1F5C1EC61BB5E28D00542B43 /* GeneralMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC51BB5E28D00542B43 /* GeneralMenuScene.swift */; settings = {ASSET_TAGS = (); }; };
+		1F5C1EC81BB5E31D00542B43 /* InventoryMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC71BB5E31D00542B43 /* InventoryMenuScene.swift */; settings = {ASSET_TAGS = (); }; };
+		1F5C1ECA1BB6E7ED00542B43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C1EC91BB6E7ED00542B43 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		1FC2803C1BAC35D0004E0330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2803B1BAC35D0004E0330 /* AppDelegate.swift */; };
 		1FC2803E1BAC35D0004E0330 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC2803D1BAC35D0004E0330 /* art.scnassets */; };
 		1FC280401BAC35D0004E0330 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2803F1BAC35D0004E0330 /* GameViewController.swift */; };
@@ -49,6 +53,10 @@
 		1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDScene.swift; sourceTree = "<group>"; };
 		1F5C1EBE1BB5D1E700542B43 /* bag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bag.jpg; sourceTree = "<group>"; };
 		1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonSpriteNode.swift; sourceTree = "<group>"; };
+		1F5C1EC31BB5DFF800542B43 /* GeneralUIScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralUIScene.swift; sourceTree = "<group>"; };
+		1F5C1EC51BB5E28D00542B43 /* GeneralMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralMenuScene.swift; sourceTree = "<group>"; };
+		1F5C1EC71BB5E31D00542B43 /* InventoryMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryMenuScene.swift; sourceTree = "<group>"; };
+		1F5C1EC91BB6E7ED00542B43 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FC280381BAC35D0004E0330 /* characterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = characterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC2803B1BAC35D0004E0330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FC2803D1BAC35D0004E0330 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -98,6 +106,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F5C1EC21BB5DF7200542B43 /* UI Menus */ = {
+			isa = PBXGroup;
+			children = (
+				1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */,
+				1F5C1EC31BB5DFF800542B43 /* GeneralUIScene.swift */,
+				1F5C1EC71BB5E31D00542B43 /* InventoryMenuScene.swift */,
+				1F5C1EC51BB5E28D00542B43 /* GeneralMenuScene.swift */,
+			);
+			name = "UI Menus";
+			sourceTree = "<group>";
+		};
 		1FC2802F1BAC35D0004E0330 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +140,7 @@
 		1FC2803A1BAC35D0004E0330 /* characterTest */ = {
 			isa = PBXGroup;
 			children = (
+				1F5C1EC21BB5DF7200542B43 /* UI Menus */,
 				1FF126F91BB1F59700E18D5B /* Game */,
 				1FF126F81BB1F57800E18D5B /* Utilities */,
 				1FF126F71BB1F54D00E18D5B /* iOS */,
@@ -176,6 +196,7 @@
 				1FF126F11BB03B7100E18D5B /* EventHandlerDelegate.swift */,
 				1FF126F31BB0B4BD00E18D5B /* InputHandler.swift */,
 				1F5C1EC01BB5D49C00542B43 /* ButtonSpriteNode.swift */,
+				1F5C1EC91BB6E7ED00542B43 /* Constants.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -188,7 +209,6 @@
 				1FC2806F1BAC3837004E0330 /* GameScene.swift */,
 				1FC2803F1BAC35D0004E0330 /* GameViewController.swift */,
 				1FF126EF1BB039EB00E18D5B /* GameView.swift */,
-				1F5C1EBA1BB5CCA200542B43 /* HUDScene.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -328,8 +348,12 @@
 			files = (
 				1F5C1EC11BB5D49C00542B43 /* ButtonSpriteNode.swift in Sources */,
 				1FC280401BAC35D0004E0330 /* GameViewController.swift in Sources */,
+				1F5C1EC61BB5E28D00542B43 /* GeneralMenuScene.swift in Sources */,
+				1F5C1EC41BB5DFF800542B43 /* GeneralUIScene.swift in Sources */,
 				1FC2803C1BAC35D0004E0330 /* AppDelegate.swift in Sources */,
+				1F5C1ECA1BB6E7ED00542B43 /* Constants.swift in Sources */,
 				1FC280721BAC38B4004E0330 /* GameLevel.swift in Sources */,
+				1F5C1EC81BB5E31D00542B43 /* InventoryMenuScene.swift in Sources */,
 				1FF126F41BB0B4BD00E18D5B /* InputHandler.swift in Sources */,
 				1FC280701BAC3837004E0330 /* GameScene.swift in Sources */,
 				1FF126F01BB039EB00E18D5B /* GameView.swift in Sources */,
@@ -480,6 +504,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.mscr.characterTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -491,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.mscr.characterTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

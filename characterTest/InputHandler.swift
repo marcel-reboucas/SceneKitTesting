@@ -35,6 +35,7 @@ public class InputHandler : EventHandlerDelegate {
     var screenWidth : CGFloat!
     
     init(scnView: GameView) {
+
         self.sceneView = scnView
         
         screenWidth = sceneView.bounds.size.width
@@ -64,21 +65,24 @@ public class InputHandler : EventHandlerDelegate {
     
     func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        for touch in touches {
-            
-            //checa primeiro se o toque iniciou no padrect. com isso, se começou no padrect, não vai criar um actiontouch.
-            if touchIsInRect(touch, rect: padRect) {
-                //We're in the dpad
-                if padTouch == nil {
-                    padTouch = touch
-                    print("Starting pad touch.")
-                }
-            } else if touchIsInRect(touch, rect: actionRect) {
-                //We're in the right area of the screen
-                if actionTouch == nil {
-                    actionTouch = touch
-                    initialActionPosition = actionTouch!.locationInView(sceneView)
-                    print("Starting action touch.")
+        if sceneView.playing {
+            for touch in touches {
+                
+                print("inputhandler")
+                //checa primeiro se o toque iniciou no padrect. com isso, se começou no padrect, não vai criar um actiontouch.
+                if touchIsInRect(touch, rect: padRect) {
+                    //We're in the dpad
+                    if padTouch == nil {
+                        padTouch = touch
+                        //print("Starting pad touch.")
+                    }
+                } else if touchIsInRect(touch, rect: actionRect) {
+                    //We're in the right area of the screen
+                    if actionTouch == nil {
+                        actionTouch = touch
+                        initialActionPosition = actionTouch!.locationInView(sceneView)
+                        //print("Starting action touch.")
+                    }
                 }
             }
         }
@@ -87,52 +91,58 @@ public class InputHandler : EventHandlerDelegate {
     func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //print("Moved")
         
-        movementDirectionCacheValid = false;
-        
-        if padTouch != nil {
-            let p0 = padTouch!.previousLocationInView(sceneView)
-            let p1 = padTouch!.locationInView(sceneView)
+        if sceneView.playing {
+            movementDirectionCacheValid = false;
             
-            let SPEED : CGFloat = 1.0 / 10.0
-            let LIMIT : CGFloat = 1.0
-            movementDirection.x += (p1.x-p0.x) * SPEED;
-            movementDirection.y += (p1.y-p0.y) * SPEED;
-            
-            if (movementDirection.x > LIMIT){
-                movementDirection.x = LIMIT
+            if padTouch != nil {
+                let p0 = padTouch!.previousLocationInView(sceneView)
+                let p1 = padTouch!.locationInView(sceneView)
+                
+                let SPEED : CGFloat = 1.0 / 10.0
+                let LIMIT : CGFloat = 1.0
+                movementDirection.x += (p1.x-p0.x) * SPEED;
+                movementDirection.y += (p1.y-p0.y) * SPEED;
+                
+                if (movementDirection.x > LIMIT){
+                    movementDirection.x = LIMIT
+                }
+                
+                if (movementDirection.x < -LIMIT){
+                    movementDirection.x = -LIMIT;
+                }
+                
+                if (movementDirection.y > LIMIT){
+                    movementDirection.y = LIMIT;
+                }
+                
+                if (movementDirection.y < -LIMIT){
+                    movementDirection.y = -LIMIT;
+                }
+                
+                directionDidChange()
             }
             
-            if (movementDirection.x < -LIMIT){
-                movementDirection.x = -LIMIT;
+            
+            if actionTouch != nil {
+                
+                //let p1 = actionTouch!.locationInView(sceneView)
+                
+                //print("actionTouch went from \(initialActionPosition) to \(p1)")
+                
             }
-            
-            if (movementDirection.y > LIMIT){
-                movementDirection.y = LIMIT;
-            }
-            
-            if (movementDirection.y < -LIMIT){
-                movementDirection.y = -LIMIT;
-            }
-            
-            directionDidChange()
-        }
-        
-        
-        if actionTouch != nil {
-            
-            //let p1 = actionTouch!.locationInView(sceneView)
-            
-            //print("actionTouch went from \(initialActionPosition) to \(p1)")
-            
         }
     }
     
     func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        commonTouchesEnded(touches, withEvent: event)
+        if sceneView.playing {
+            commonTouchesEnded(touches, withEvent: event)
+        }
     }
     
     func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        commonTouchesEnded(touches, withEvent: event)
+        if sceneView.playing {
+            commonTouchesEnded(touches, withEvent: event)
+        }
     }
     
     func commonTouchesEnded(touches: Set<UITouch>?, withEvent event: UIEvent?) {
@@ -144,7 +154,7 @@ public class InputHandler : EventHandlerDelegate {
                     padTouch = nil
                     movementDirection = CGPointMake(0, 0);
                     directionDidChange()
-                    print("Ending pad touch.")
+                    //print("Ending pad touch.")
                 }
             }
             
@@ -153,7 +163,7 @@ public class InputHandler : EventHandlerDelegate {
                     
                     let point = actionTouch!.locationInView(sceneView)
                     let touchAction = calculateTouchAction(initialActionPosition!, endingPoint: point)
-                    print("Action Ended: \(touchAction.action.description()) \(touchAction.intensity)")
+                    //print("Action Ended: \(touchAction.action.description()) \(touchAction.intensity)")
                     
                     //testing
                     addTextToAction(point, action: touchAction.action)

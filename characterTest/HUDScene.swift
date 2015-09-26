@@ -5,35 +5,18 @@
 //  Created by Marcel de Siqueira Campos Rebouças on 9/25/15.
 //  Copyright © 2015 mscr. All rights reserved.
 //
-
+// HUDScene is the scene that shows the HUD (inventory icon, dpad icon etc)
 import SpriteKit
 
-class HUDScene : SKScene {
+class HUDScene : GeneralUIScene {
     
-    var scnView : GameView!
     var inputHandler : InputHandler!
     
-    var w : CGFloat!
-    var h : CGFloat!
-    
     init(scnView : GameView!, inputHandler : InputHandler!){
-    
-        w = scnView.bounds.size.width
-        h = scnView.bounds.size.height
-        
-        
-        // Support Landscape scape
-        if (w < h) {
-            let wTmp = w;
-            w = h;
-            h = wTmp;
-        }
 
-        super.init(size: CGSizeMake(w,h))
+        super.init(scnView: scnView)
         
-        self.scnView = scnView
         self.inputHandler = inputHandler
-    
         setupHUD()
     }
     
@@ -42,11 +25,6 @@ class HUDScene : SKScene {
     }
 
     func setupHUD() {
-        
-        self.scaleMode = SKSceneScaleMode.ResizeFill
-        self.shouldEnableEffects = true
-        self.backgroundColor = SKColor.clearColor()
-        self.blendMode = .Alpha
         
         // The D-Pad
         let dpadSprite = SKSpriteNode(imageNamed: "dpad.png")
@@ -68,9 +46,9 @@ class HUDScene : SKScene {
         self.addChild(bagSprite)
         bagSprite.userInteractionEnabled = true
         bagSprite.action = { arg in
-            print("Pressed bag!")
+            let inventoryMenu = InventoryMenuScene(scnView: self.scnView)
+            inventoryMenu.show()
         }
-        
         
     }
     

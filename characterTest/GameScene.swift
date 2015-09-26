@@ -84,9 +84,7 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
     func setupSKOverlay(){
         
         let hud = HUDScene(scnView: sceneView, inputHandler: inputHandler)
-       
-        // Assign the SpriteKit overlay to the SceneKit view.
-        sceneView.overlaySKScene = hud;
+        hud.show()
     }
     
     func setupLights() {
@@ -216,4 +214,5 @@ class GameScene : SCNScene, SCNSceneRendererDelegate, SCNPhysicsContactDelegate 
     func physicsWorld(world: SCNPhysicsWorld, didBeginContact contact: SCNPhysicsContact) {
  
     }
+    
 }
